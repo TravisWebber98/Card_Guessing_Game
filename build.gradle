@@ -7,13 +7,12 @@ plugins {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21) // or 21 if you're using the latest
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
-
-group 'com.OOD.Group1'
-version '1.0-SNAPSHOT'
+group = 'com.OOD.Group1'
+version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -28,20 +27,19 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 application {
-    mainClass = 'com.ood.groupOne.card_guessing_game.HelloApplication'
+    mainClass = 'com.ood.groupOne.card_guessing_game.MainApp'
 }
 
 javafx {
     version = '21.0.6'
-    modules = ['javafx.controls', 'javafx.fxml']
+    modules = ['javafx.base', 'javafx.graphics', 'javafx.controls', 'javafx.media']
 }
 
 dependencies {
+    implementation "org.openjfx:javafx-controls:21.0.6"
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-    implementation 'org.openjfx:javafx-controls:21.0.6'
-    implementation 'org.openjfx:javafx-fxml:21.0.6'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
 }
 
 test {
@@ -58,15 +56,5 @@ jlink {
 
 jlinkZip {
     group = 'distribution'
-}
-
-run {
-    doFirst {
-        // Remove the --module-path and --add-modules JVM args
-        jvmArgs = [
-                "--module-path", "C:/Program Files/Java/openjfx-21.0.6_windows-x64_bin-sdk/javafx-sdk-21.0.6/lib",
-                "--add-modules", "javafx.controls,javafx.fxml"
-        ]
-    }
 }
 

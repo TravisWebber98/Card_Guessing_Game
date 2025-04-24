@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class HelloApplication extends Application {
+public class MainApp extends Application {
     @Override
     public void start(Stage stage) {
         Pane pane = new Pane();
