@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Cleaned up the build file and renamed main.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Timer.java" afterDir="false" />
-    </list>
+    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Adjusted mainApp and levels to use the deck class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,7 +123,7 @@
       <recent name="com.ood.groupOne.card_guessing_game" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Card_Guessing_Game [runVisualTimerTest]">
+  <component name="RunManager" selected="Gradle.DeckTest">
     <configuration name="CardTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -233,9 +224,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Card_Guessing_Game [runVisualTimerTest]" />
         <item itemvalue="Gradle.DeckTest" />
         <item itemvalue="Gradle.CardTest" />
+        <item itemvalue="Gradle.Card_Guessing_Game [runVisualTimerTest]" />
       </list>
     </recent_temporary>
   </component>
@@ -271,7 +262,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745467048912</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adjusted mainApp and levels to use the deck class">
+      <option name="closed" value="true" />
+      <created>1746133244101</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746133244101</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adjusted mainApp and levels to use the deck class">
+      <option name="closed" value="true" />
+      <created>1746133307921</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746133307921</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +297,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cleaned up the build file and renamed main." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up the build file and renamed main." />
+    <MESSAGE value="Adjusted mainApp and levels to use the deck class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted mainApp and levels to use the deck class" />
   </component>
 </project>
