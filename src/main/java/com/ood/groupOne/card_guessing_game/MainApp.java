@@ -38,7 +38,7 @@ public class MainApp extends Application {
                 // Create card
                 cards[i][j] = new Card(ranks[j], suits[i]);
 
-                // Load matching image
+                // Load matching image from /Resources/CardImages/
                 String imagePath = "/CardImages/" + ranks[j] + "_of_" + suits[i] + ".png";
                 try {
                     Image image = new Image(getClass().getResourceAsStream(imagePath));
@@ -60,10 +60,18 @@ public class MainApp extends Application {
     }
     public void startLevel(int levelNum){
         switch (levelNum) {
-            case 1 -> mainLayout.setCenter(new Level1(this).getLayout());
-            case 2 -> mainLayout.setCenter(new Level2(this).getLayout());
-            case 3 -> mainLayout.setCenter(new Level3(this).getLayout());
-            default -> System.out.println("Invalid level");
+            case 1:
+                mainLayout.setCenter(new Level1(this).getLayout());
+                break;
+            case 2:
+                mainLayout.setCenter(new Level2(this).getLayout());
+                break;
+            case 3:
+                mainLayout.setCenter(new Level3(this).getLayout());
+                break;
+            default:
+                System.out.println("Invalid level");
+                break;
         }
 
     }
@@ -78,6 +86,7 @@ public class MainApp extends Application {
         return cardImages;
     }
     public static void main(String[] args) {
+
         launch();
     }
 }
