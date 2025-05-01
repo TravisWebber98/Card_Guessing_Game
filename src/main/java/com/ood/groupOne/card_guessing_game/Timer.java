@@ -14,6 +14,7 @@ public class Timer {
         timerLabel = label;
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTimer()));
         timeline.setCycleCount(Timeline.INDEFINITE);
+        timerLabel.setText("Time left: " + timeLeft);
     }
 
     private void updateTimer() {

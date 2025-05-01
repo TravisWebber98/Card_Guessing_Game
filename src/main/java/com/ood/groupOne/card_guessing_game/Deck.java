@@ -6,8 +6,8 @@ public class Deck {
     private ArrayList<Card> deck = new ArrayList<>();
 
     public Deck() {
-        String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
-        String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+        String[] suits = {"clubs", "diamonds", "hearts", "spades"};
+        String[] ranks = {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"};
 
         for (String suit : suits) {
             for (String rank : ranks) {
@@ -23,5 +23,9 @@ public class Deck {
 
     public int size() {
         return deck.size();
+    }
+
+    public ArrayList<Card> deck() {
+        return deck;
     }
 }
