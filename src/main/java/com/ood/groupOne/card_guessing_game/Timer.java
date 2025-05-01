@@ -6,12 +6,13 @@ import javafx.util.Duration;
 import javafx.scene.control.Label;
 public class Timer {
     private int timeLeft = 30;
-    private boolean timeIsUp = false;
     private Timeline timeline;
     private Label timerLabel;
+    private MainApp mainApp;
 
-    public Timer(Label label) {
+    public Timer(Label label, MainApp mainApp) {
         timerLabel = label;
+        this.mainApp = mainApp;
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTimer()));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timerLabel.setText("Time left: " + timeLeft);
@@ -22,9 +23,9 @@ public class Timer {
             timeLeft--;
             timerLabel.setText("Time left: " + timeLeft);
         } else {
-            timeIsUp = true;
             timeline.stop();
             timerLabel.setText("Time is up!");
+            mainApp.startLevel(5);
         }
     }
 
@@ -39,11 +40,6 @@ public class Timer {
 
     public void reset() {
         timeLeft = 30;
-        timeIsUp = false;
         timerLabel.setText("Time left: " + timeLeft);
-    }
-
-    public boolean timeIsUp() {
-        return timeIsUp;
     }
 }

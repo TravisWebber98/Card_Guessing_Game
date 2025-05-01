@@ -30,7 +30,7 @@ public class Level2 {
 
         //timer
         timerLabel = new Label();
-        Timer timer = new Timer(timerLabel);
+        Timer timer = new Timer(timerLabel, mainApp);
 
         cardBackImage = new Image(getClass().getResourceAsStream("/CardImages/back.png"));
 

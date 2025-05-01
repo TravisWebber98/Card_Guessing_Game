@@ -30,7 +30,7 @@ public class Level3 {
 
         //timer
         timerLabel = new Label();
-        Timer timer = new Timer(timerLabel);
+        Timer timer = new Timer(timerLabel, mainApp);
         timer.start();
 
         cardBackImage = new Image(getClass().getResourceAsStream("/CardImages/back.png"));
@@ -93,7 +93,7 @@ public class Level3 {
 
         if (correct == 3) {
             flipCardsFaceUp();
-            System.out.println("Congratulations! You beat the game! \nGG's!");
+            mainApp.startLevel(4);
         } else {
             showRetryOption("Wrong! Try again.");
         }

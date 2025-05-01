@@ -31,7 +31,7 @@ public class Level1 {
 
         //timer
         timerLabel = new Label();
-        Timer timer = new Timer(timerLabel);
+        Timer timer = new Timer(timerLabel, mainApp);
         timer.start();
 
         //load cardback image from Resources/CardImages

@@ -58,6 +58,11 @@ public class MainApp extends Application {
             case 3:
                 mainLayout.setCenter(new Level3(this).getLayout());
                 break;
+            case 4:
+                mainLayout.setCenter(new Victory(this).getLayout());
+                break;
+            case 5:
+                mainLayout.setCenter(new GameOver(this).getLayout());
             default:
                 System.out.println("Invalid level");
                 break;
