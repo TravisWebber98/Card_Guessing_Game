@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Cleaned up the build file and renamed main.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/MainApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,17 +29,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="card_guessing_game" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="card_guessing_game" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="card_guessing_game" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -89,39 +76,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build Card_Guessing_Game.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CardTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Card_Guessing_Game [:com.ood.groupOne.card_guessing_game.HelloApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Card_Guessing_Game [:com.ood.groupOne.card_guessing_game.TimerTest.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Card_Guessing_Game [:com.ood.groupOne.card_guessing_game.TimerVisualTest.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Card_Guessing_Game [runTimerTest].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Card_Guessing_Game [runVisualTimerTest].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Card_Guessing_Game [run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Card_Guessing_Game [testClasses].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Card_Guessing_Game.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DeckTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TimerTest.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tgweb/ObjectOrientedProgramming/Final_Project/Card_Guessing_Game/build.gradle&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MainApp.executor": "Run",
+    "Gradle.Build Card_Guessing_Game.executor": "Run",
+    "Gradle.CardTest.executor": "Run",
+    "Gradle.Card_Guessing_Game [:com.ood.groupOne.card_guessing_game.HelloApplication.main()].executor": "Run",
+    "Gradle.Card_Guessing_Game [:com.ood.groupOne.card_guessing_game.TimerTest.main()].executor": "Run",
+    "Gradle.Card_Guessing_Game [:com.ood.groupOne.card_guessing_game.TimerVisualTest.main()].executor": "Run",
+    "Gradle.Card_Guessing_Game [runTimerTest].executor": "Run",
+    "Gradle.Card_Guessing_Game [runVisualTimerTest].executor": "Run",
+    "Gradle.Card_Guessing_Game [run].executor": "Run",
+    "Gradle.Card_Guessing_Game [testClasses].executor": "Run",
+    "Gradle.Card_Guessing_Game.executor": "Run",
+    "Gradle.DeckTest.executor": "Run",
+    "Gradle.TimerTest.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Rebasing main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/tgweb/ObjectOrientedProgramming/Final_Project/Card_Guessing_Game/build.gradle",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "build.tools",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.ood.groupOne.card_guessing_game" />
