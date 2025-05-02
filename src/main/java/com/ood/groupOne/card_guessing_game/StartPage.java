@@ -18,7 +18,7 @@ public class StartPage {
         welcome.setStyle("-fx-text-fill: black; -fx-font-size: 30px; -fx-font-weight: bold;");
 
         Button startButton = new Button("START GAME");
-        startButton.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold;");
+        startButton.setStyle("-fx-text-fill: black; -fx-font-size: 15px; -fx-font-weight: bold;");
 
         startButton.setOnAction(e -> mainApp.startLevel(1));
 

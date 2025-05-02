@@ -13,8 +13,11 @@ public class Victory {
         layout = new VBox(40);
         layout.setAlignment(Pos.CENTER);
 
-        Label winMessage = new Label("YOU WIN!");
+        Label winMessage = new Label("You won!");
+        winMessage.setStyle("-fx-text-fill: green; -fx-font-size: 30px; -fx-font-weight: bold;");
+
         Button restartButton = new Button("Play Again?");
+        restartButton.setStyle("-fx-text-fill: black; -fx-font-size: 15px; -fx-font-weight: bold;");
 
         restartButton.setOnAction(e -> mainApp.startLevel(1));
 

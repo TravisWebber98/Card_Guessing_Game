@@ -10,18 +10,18 @@ public class Game {
     private static int guess = 1;
     private static int target = 3;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Please input level number");
-        lvlAmt = sc.nextInt();
-        System.out.print("Please input guess");
-        guess = sc.nextInt();
-
-        checkGuess();
-        setScore();
-        getHint();
-        System.out.println(score);
-    }
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Please input level number");
+//        lvlAmt = sc.nextInt();
+//        System.out.print("Please input guess");
+//        guess = sc.nextInt();
+//
+//        checkGuess();
+//        setScore();
+//        getHint();
+//        System.out.println(score);
+//    }
     // TODO: Implement card class to function properly
     // Set player level, will prompt user from FX
     public void setLvl(int playerLvl) {
