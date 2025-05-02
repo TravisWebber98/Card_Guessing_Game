@@ -2,10 +2,11 @@ package com.ood.groupOne.card_guessing_game;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import java.util.ArrayList;
@@ -19,7 +20,8 @@ public class MainApp extends Application {
     @Override
     public void start(Stage mainStage) {
         mainLayout = new BorderPane();
-        Scene scene = new Scene(mainLayout, 800, 800);
+        mainLayout.setBackground(new Background(new BackgroundFill(Color.DEEPSKYBLUE, null, null)));
+        Scene scene = new Scene(mainLayout, 800, 600);
 
         mainStage.setTitle("Group 1's Card Game");
         mainStage.setScene(scene);
