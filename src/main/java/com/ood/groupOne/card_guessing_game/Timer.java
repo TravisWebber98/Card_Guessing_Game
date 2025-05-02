@@ -5,7 +5,7 @@ import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javafx.scene.control.Label;
 public class Timer {
-    private int timeLeft = 30;
+    private int timeLeft = 60;
     private Timeline timeline;
     private Label timerLabel;
     private MainApp mainApp;

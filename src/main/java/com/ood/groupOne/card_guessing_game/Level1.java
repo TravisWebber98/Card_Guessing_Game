@@ -6,9 +6,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import java.util.ArrayList;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class Level1 {
     private VBox layout;
@@ -49,10 +49,15 @@ public class Level1 {
             VBox cardBox = new VBox(20);
             cardBox.setAlignment(Pos.CENTER);
 
+            Rectangle background = new Rectangle(105, 155, Color.WHITE);
+
             ImageView cardBack = new ImageView(cardBackImage);
             cardBack.setFitWidth(100);
             cardBack.setFitHeight(150);
             selectedCardViews[i] = cardBack;
+
+            StackPane cardPane = new StackPane();
+            cardPane.getChildren().addAll(background, cardBack);
 
             TextField guessField = new TextField();
             guessField.setPromptText("Suit (lowercase only)");
@@ -64,7 +69,7 @@ public class Level1 {
             guessButton.setOnAction(e -> handleGuess(index));
 
             //add all components for individual card into its VBox
-            cardBox.getChildren().addAll(cardBack, guessField, guessButton);
+            cardBox.getChildren().addAll(cardPane, guessField, guessButton);
             cardRow.getChildren().add(cardBox);
         }
 
