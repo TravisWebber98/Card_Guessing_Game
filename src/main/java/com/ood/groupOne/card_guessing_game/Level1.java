@@ -18,8 +18,8 @@ public class Level1 {
     private ImageView[] selectedCardViews = new ImageView[3];
     private Image cardBackImage;
     private Label timerLabel;
-    private Label retryLabel = null;
-    private Button retryLevelButton = null;
+    private boolean[] correctGuess = new boolean[3]; // Track if each card has been guessed correctly
+
 
     public Level1(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -27,7 +27,7 @@ public class Level1 {
         layout.setAlignment(Pos.CENTER);
 
         //level and instuctions
-        Label levelLabel = new Label("Level 1 : EASY MODE : Guess the suits. \n(Only enter Hearts, Clubs, Diamonds, Spades (case sensitive) ");
+        Label levelLabel = new Label("Level 1 : EASY MODE : Guess the suits. \n(spades, diamonds, hearts, clubs) ");
 
         //timer
         timerLabel = new Label();
@@ -41,13 +41,7 @@ public class Level1 {
         HBox cardRow = new HBox(40);
         cardRow.setAlignment(Pos.CENTER);
 
-        //generate random cards
-        //Random rand = new Random();
-        //Card[][] deck = mainApp.getCards();
-
         for (int i = 0; i < 3; i++) {
-//            int suitIndex = rand.nextInt(4);
-//            int rankIndex = rand.nextInt(13);
 
             Card cardDrawn = mainApp.getDeck().drawCard();
             selectedCards[i] = cardDrawn;
@@ -61,115 +55,52 @@ public class Level1 {
             selectedCardViews[i] = cardBack;
 
             TextField guessField = new TextField();
-            guessField.setPromptText("Suit");
-
+            guessField.setPromptText("Suit (lowercase only)");
             guessFields[i] = guessField;
-            cardBox.getChildren().addAll(cardBack, guessField);
+
+            //Individual guess button for this card
+            Button guessButton = new Button("Submit Guess");
+            int index = i;
+            guessButton.setOnAction(e -> handleGuess(index));
+
+            //add all components for individual card into its VBox
+            cardBox.getChildren().addAll(cardBack, guessField, guessButton);
             cardRow.getChildren().add(cardBox);
         }
 
-        Button submitButton = new Button("Submit Guess");
-        submitButton.setOnAction(e -> {
-            //    timer.stop();
-
-            checkGuesses();
-        });
-
-        layout.getChildren().addAll(timerLabel, levelLabel, cardRow, submitButton);
+        layout.getChildren().addAll(timerLabel, levelLabel, cardRow);
     }
-    //check if right or wrong
-    private void checkGuesses() {
-        int correctGuess = 0;
+    // individual guess
+    private void handleGuess(int index) {
+        if (correctGuess[index]) return;  // skip if already guessed correctly
 
-        for (int i = 0; i < 3; i++) {
-            String guess = guessFields[i].getText();
-            String actualSuit = selectedCards[i].suit();
+        String guess = guessFields[index].getText();
+        String actual = selectedCards[index].suit();
 
-            if (guess.equals(actualSuit)) {
-                correctGuess++;
-            }
+        if (guess.equals(actual)) {
+            correctGuess[index] = true;
+            flipCard(index); // Flip the correct card
         }
 
-        if (correctGuess == 3) {
-            flipCardsFaceUp();
-            System.out.println("Correct! Starting Level 2...");
+        // If all cards are guessed correctly, advance to next level
+        if (allCorrect()) {
             mainApp.startLevel(2);
-        } else {
-            showRetryOption("Wrong. Try again.");
-
-        }
-    }
-    //flip card
-    private void flipCardsFaceUp() {
-        ArrayList<ImageView> cardImages = mainApp.getCardImages();
-
-        for (int i = 0; i < 3; i++) {
-            Card card = selectedCards[i];
-
-//            int suitIndex = getSuitIndex(card.suit());
-//            int rankIndex = getRankIndex(card.rank());
-//
-//            if (suitIndex == -1 || rankIndex == -1) {
-//                System.out.println("Invalid suit for card " + i + ": " + card.suit() + " / " + card.rank());
-//                selectedCardViews[i].setImage(cardBackImage); // Keep showing back image
-//            } else {
-//                Image faceImage = cardImages[suitIndex][rankIndex].getImage();
-//                selectedCardViews[i].setImage(faceImage);
-//            }
-            Image faceImage;
-            faceImage = cardImages.get(mainApp.getDeck().deck().indexOf(card)).getImage();
-            selectedCardViews[i].setImage(faceImage);
-        }
-    }
-    //retry level
-    private void showRetryOption(String messageText) {
-        //delete old retry label/button if they exist
-        if (retryLabel != null) layout.getChildren().remove(retryLabel);
-        if (retryLevelButton != null) layout.getChildren().remove(retryLevelButton);
-
-        retryLabel = new Label(messageText);
-        retryLevelButton = new Button("Retry Level 1");
-        retryLevelButton.setOnAction(e -> mainApp.startLevel(1));
-
-        layout.getChildren().addAll(retryLabel, retryLevelButton);
-    }
-
-
-    private int getSuitIndex(String suit) {
-        switch (suit) {
-            case "Clubs":
-            case "clubs": return 0;
-            case "Diamonds":
-            case "diamonds": return 1;
-            case "Hearts":
-            case "hearts": return 2;
-            case "Spades":
-            case "spades": return 3;
-            default: return -1;
         }
     }
 
-    private int getRankIndex(String rank) {
-        switch (rank) {
-            case "Ace":
-            case "ace": return 0;
-            case "2": return 1;
-            case "3": return 2;
-            case "4": return 3;
-            case "5": return 4;
-            case "6": return 5;
-            case "7": return 6;
-            case "8": return 7;
-            case "9": return 8;
-            case "10": return 9;
-            case "Jack":
-            case "jack": return 10;
-            case "Queen":
-            case "queen": return 11;
-            case "King":
-            case "king": return 12;
-            default: return -1;
+    // Flip
+    private void flipCard(int index) {
+        Card card = selectedCards[index];
+        Image faceImage = mainApp.getCardImages().get(mainApp.getDeck().deck().indexOf(card)).getImage();
+        selectedCardViews[index].setImage(faceImage);
+    }
+
+    // Check all cards have been guessed correctly
+    private boolean allCorrect() {
+        for (boolean correct : correctGuess) {
+            if (!correct) return false;
         }
+        return true;
     }
 
     public VBox getLayout() {
