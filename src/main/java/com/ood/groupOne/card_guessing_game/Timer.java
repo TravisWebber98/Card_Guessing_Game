@@ -24,7 +24,6 @@ public class Timer {
             timerLabel.setText("Time left: " + timeLeft);
         } else {
             timeline.stop();
-            timerLabel.setText("Time is up!");
             mainApp.startLevel(5);
         }
     }

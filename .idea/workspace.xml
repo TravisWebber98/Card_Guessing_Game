@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Adjusted mainApp and levels to use the deck class">
+    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Made basic Game Over and Victory screens. changed timer to automatically go to game over when time runs out. Level 3 should go to victory but haven't been able to test.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/GameOver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/GameOver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/StartPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Timer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/TimerVisualTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Victory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Victory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +234,7 @@
       <workItem from="1745902812816" duration="25000" />
       <workItem from="1746051555199" duration="15642000" />
       <workItem from="1746071304197" duration="392000" />
-      <workItem from="1746133543941" duration="1856000" />
+      <workItem from="1746133543941" duration="5574000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up the build file and renamed main.">
       <option name="closed" value="true" />
@@ -273,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746133492886</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Made basic Game Over and Victory screens. changed timer to automatically go to game over when time runs out. Level 3 should go to victory but haven't been able to test.">
+      <option name="closed" value="true" />
+      <created>1746138921401</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746138921401</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +296,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cleaned up the build file and renamed main." />
     <MESSAGE value="Adjusted mainApp and levels to use the deck class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusted mainApp and levels to use the deck class" />
+    <MESSAGE value="Made basic Game Over and Victory screens. changed timer to automatically go to game over when time runs out. Level 3 should go to victory but haven't been able to test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made basic Game Over and Victory screens. changed timer to automatically go to game over when time runs out. Level 3 should go to victory but haven't been able to test." />
   </component>
 </project>
