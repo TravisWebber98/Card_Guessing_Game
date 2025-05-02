@@ -1,5 +1,6 @@
 package com.ood.groupOne.card_guessing_game;
 
+import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,7 +8,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
 import java.util.ArrayList;
 
 public class Level2 {
@@ -17,19 +22,23 @@ public class Level2 {
     private ImageView[] selectedCardViews = new ImageView[3];
     private Card[] selectedCards = new Card[3];
     private Image cardBackImage;
-    private Label timerLabel;
     private boolean[] correctGuess = new boolean[3]; // Track if each card has been guessed correctly
+    private Timer timer;
+    private Label feedbackLabel = new Label();
 
     public Level2(MainApp mainApp) {
         this.mainApp = mainApp;
         layout = new VBox(20);
         layout.setAlignment(Pos.CENTER);
 
-        Label levelLabel = new Label("Level 2: MEDIUM MODE \nGuess the RANK of each card (Ace, 2 ... Queen, King)");
+        Label levelLabel = new Label("Level 2: MEDIUM MODE \nGuess the RANK of each card (ace, 2 ... queen, king)");
+        levelLabel.setStyle("-fx-text-fill: black; -fx-font-size: 15px;");
 
         //timer
-        timerLabel = new Label();
-        Timer timer = new Timer(timerLabel, mainApp);
+        Label timerLabel = new Label();
+        timerLabel.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold;");
+        timer = new Timer(timerLabel, mainApp);
+        timer.setTimeLeft(60);
         timer.start();
 
         cardBackImage = new Image(getClass().getResourceAsStream("/CardImages/back.png"));
@@ -45,10 +54,15 @@ public class Level2 {
             VBox cardBox = new VBox(10);
             cardBox.setAlignment(Pos.CENTER);
 
+            Rectangle background = new Rectangle(105, 155, Color.WHITE);
+
             ImageView cardBack = new ImageView(cardBackImage);
             cardBack.setFitWidth(100);
             cardBack.setFitHeight(150);
             selectedCardViews[i] = cardBack;
+
+            StackPane cardPane = new StackPane();
+            cardPane.getChildren().addAll(background, cardBack);
 
             TextField guessField = new TextField();
             guessField.setPromptText("Rank (lowercase only)");
@@ -58,10 +72,11 @@ public class Level2 {
             int index = i;
             guessButton.setOnAction(e -> handleGuess(index));
 
-            cardBox.getChildren().addAll(cardBack, guessField);
+            cardBox.getChildren().addAll(cardPane, guessField, guessButton);
             cardRow.getChildren().add(cardBox);
         }
-        layout.getChildren().addAll(timerLabel, levelLabel, cardRow);
+        feedbackLabel.setVisible(false);
+        layout.getChildren().addAll(timerLabel, levelLabel, cardRow, feedbackLabel);
     }
 
 
@@ -72,13 +87,21 @@ public class Level2 {
         String guess = guessFields[index].getText();
         String actual = selectedCards[index].rank();
 
+        int guessedValue = getRankValue(guess);
+        int actualValue = getRankValue(actual);
+
         if (guess.equals(actual)) {
             correctGuess[index] = true;
             flipCard(index);
+        } else if (guessedValue > actualValue) {
+            showFeedback("Too High!");
+        } else {
+            showFeedback("Too Low!");
         }
 
         if (allCorrect()) {
-            mainApp.startLevel(3);
+            timer.stop();
+            nextLevel("All cards guessed correctly! Are you ready for level 3?");
         }
     }
 
@@ -96,6 +119,72 @@ public class Level2 {
         }
         return true;
     }
+
+    private void showFeedback(String message) {
+        feedbackLabel.setText(message);
+        feedbackLabel.setStyle("-fx-text-fill: red; -fx-font-size: 15px;");
+        feedbackLabel.setOpacity(1.0);
+        feedbackLabel.setVisible(true);
+
+        FadeTransition fade = new FadeTransition(javafx.util.Duration.seconds(5), feedbackLabel);
+        fade.setFromValue(1.0);
+        fade.setToValue(0.0);
+        fade.setOnFinished(e -> {
+            feedbackLabel.setVisible(false);
+        });
+        fade.play();
+    }
+
+    private void nextLevel(String message) {
+        feedbackLabel.setText(message);
+        feedbackLabel.setStyle("-fx-text-fill: green; -fx-font-size: 20px;");
+        feedbackLabel.setOpacity(1.0);
+        feedbackLabel.setVisible(true);
+
+        FadeTransition fade = new FadeTransition(javafx.util.Duration.seconds(5), feedbackLabel);
+        fade.setFromValue(1.0);
+        fade.setToValue(1.0);
+        fade.setOnFinished(e -> {
+            feedbackLabel.setVisible(false);
+            feedbackLabel.setOpacity(1.0);
+            mainApp.startLevel(3); // Transition to next level
+        });
+        fade.play();
+    }
+
+    private int getRankValue(String rank) {
+        switch (rank.toLowerCase()) {
+            case "ace":
+                return 1;
+            case "2":
+                return 2;
+            case "3":
+                return 3;
+            case "4":
+                return 4;
+            case "5":
+                return 5;
+            case "6":
+                return 6;
+            case "7":
+                return 7;
+            case "8":
+                return 8;
+            case "9":
+                return 9;
+            case "10":
+                return 10;
+            case "jack":
+                return 11;
+            case "queen":
+                return 12;
+            case "king":
+                return 13;
+            default:
+                return -1; // Invalid input
+        }
+    }
+
 
     public VBox getLayout() {
         return layout;

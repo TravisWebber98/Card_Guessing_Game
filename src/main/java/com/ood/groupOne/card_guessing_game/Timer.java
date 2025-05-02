@@ -5,7 +5,7 @@ import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javafx.scene.control.Label;
 public class Timer {
-    private int timeLeft = 60;
+    private int timeLeft;
     private Timeline timeline;
     private Label timerLabel;
     private MainApp mainApp;
@@ -13,7 +13,7 @@ public class Timer {
     public Timer(Label label, MainApp mainApp) {
         timerLabel = label;
         this.mainApp = mainApp;
-        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTimer()));
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateTimer()));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timerLabel.setText("Time left: " + timeLeft);
     }
@@ -40,5 +40,9 @@ public class Timer {
     public void reset() {
         timeLeft = 30;
         timerLabel.setText("Time left: " + timeLeft);
+    }
+
+    public void setTimeLeft(int timeLeft) {
+        this.timeLeft = timeLeft;
     }
 }

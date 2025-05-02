@@ -13,12 +13,15 @@ public class GameOver {
         layout = new VBox(40);
         layout.setAlignment(Pos.CENTER);
 
-        Label winMessage = new Label("Game Over");
+        Label loseMessage = new Label("Sorry, time's up!");
+        loseMessage.setStyle("-fx-text-fill: red; -fx-font-size: 30px; -fx-font-weight: bold;");
+
         Button restartButton = new Button("Try Again?");
+        restartButton.setStyle("-fx-text-fill: black; -fx-font-size: 15px; -fx-font-weight: bold;");
 
         restartButton.setOnAction(e -> mainApp.startLevel(1));
 
-        layout.getChildren().addAll(winMessage, restartButton);
+        layout.getChildren().addAll(loseMessage, restartButton);
     }
     public VBox getLayout() {
         return layout;
