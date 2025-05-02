@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import java.util.Random;
+import java.util.ArrayList;
 
 public class Level1 {
     private VBox layout;
@@ -21,8 +21,6 @@ public class Level1 {
     private Label retryLabel = null;
     private Button retryLevelButton = null;
 
-
-
     public Level1(MainApp mainApp) {
         this.mainApp = mainApp;
         layout = new VBox(40);
@@ -32,7 +30,9 @@ public class Level1 {
         Label levelLabel = new Label("Level 1 : EASY MODE : Guess the suits. \n(spades, diamonds, hearts, clubs) ");
 
         //timer
-        timerLabel = new Label("Timer Not Working RN");
+        timerLabel = new Label();
+        Timer timer = new Timer(timerLabel, mainApp);
+        timer.start();
 
         //load cardback image from Resources/CardImages
         cardBackImage = new Image(getClass().getResourceAsStream("/CardImages/back.png"));
@@ -42,14 +42,14 @@ public class Level1 {
         cardRow.setAlignment(Pos.CENTER);
 
         //generate random cards
-        Random rand = new Random();
-        Card[][] deck = mainApp.getCards();
+        //Random rand = new Random();
+        //Card[][] deck = mainApp.getCards();
 
         for (int i = 0; i < 3; i++) {
-            int suitIndex = rand.nextInt(4);
-            int rankIndex = rand.nextInt(13);
+//            int suitIndex = rand.nextInt(4);
+//            int rankIndex = rand.nextInt(13);
 
-            Card cardDrawn = mainApp.getCards()[suitIndex][rankIndex];
+            Card cardDrawn = mainApp.getDeck().drawCard();
             selectedCards[i] = cardDrawn;
 
             VBox cardBox = new VBox(20);
@@ -103,23 +103,25 @@ public class Level1 {
     }
     //flip card
     private void flipCardsFaceUp() {
-        ImageView[][] cardImages = mainApp.getCardImages();
+        ArrayList<ImageView> cardImages = mainApp.getCardImages();
 
         for (int i = 0; i < 3; i++) {
             Card card = selectedCards[i];
 
-            int suitIndex = getSuitIndex(card.suit());
-            int rankIndex = getRankIndex(card.rank());
-
-            if (suitIndex == -1 || rankIndex == -1) {
-                System.out.println("Invalid suit for card " + i + ": " + card.suit() + " / " + card.rank());
-                selectedCardViews[i].setImage(cardBackImage); // Keep showing back image
-            } else {
-                Image faceImage = cardImages[suitIndex][rankIndex].getImage();
-                selectedCardViews[i].setImage(faceImage);
-            }
+//            int suitIndex = getSuitIndex(card.suit());
+//            int rankIndex = getRankIndex(card.rank());
+//
+//            if (suitIndex == -1 || rankIndex == -1) {
+//                System.out.println("Invalid suit for card " + i + ": " + card.suit() + " / " + card.rank());
+//                selectedCardViews[i].setImage(cardBackImage); // Keep showing back image
+//            } else {
+//                Image faceImage = cardImages[suitIndex][rankIndex].getImage();
+//                selectedCardViews[i].setImage(faceImage);
+//            }
+            Image faceImage;
+            faceImage = cardImages.get(mainApp.getDeck().deck().indexOf(card)).getImage();
+            selectedCardViews[i].setImage(faceImage);
         }
-
     }
     //retry level
     private void showRetryOption(String messageText) {

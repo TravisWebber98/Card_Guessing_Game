@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Cleaned up the build file and renamed main.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Adjusted mainApp and levels to use the deck class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/GameOver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/GameOver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Timer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/TimerVisualTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Victory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Victory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +47,7 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="card_guessing_game" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
+                <item name="application" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -100,7 +103,6 @@
     &quot;Gradle.Card_Guessing_Game [:com.ood.groupOne.card_guessing_game.HelloApplication.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Card_Guessing_Game [:com.ood.groupOne.card_guessing_game.TimerTest.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Card_Guessing_Game [:com.ood.groupOne.card_guessing_game.TimerVisualTest.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Card_Guessing_Game [clean].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Card_Guessing_Game [runTimerTest].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Card_Guessing_Game [runVisualTimerTest].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Card_Guessing_Game [run].executor&quot;: &quot;Run&quot;,
@@ -113,7 +115,6 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/tgweb/ObjectOrientedProgramming/Final_Project/Card_Guessing_Game/build.gradle&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -155,50 +156,6 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Card_Guessing_Game [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Card_Guessing_Game [runVisualTimerTest]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="runVisualTimerTest" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="Card_Guessing_Game [run]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
@@ -249,15 +206,11 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Card_Guessing_Game [run]" />
-      <item itemvalue="Gradle.Card_Guessing_Game [clean]" />
-      <item itemvalue="Gradle.Card_Guessing_Game [runVisualTimerTest]" />
       <item itemvalue="Gradle.CardTest" />
       <item itemvalue="Gradle.DeckTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Card_Guessing_Game [clean]" />
-        <item itemvalue="Gradle.Card_Guessing_Game [runVisualTimerTest]" />
         <item itemvalue="Gradle.DeckTest" />
         <item itemvalue="Gradle.CardTest" />
       </list>
@@ -266,12 +219,11 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="" />
@@ -287,14 +239,7 @@
       <workItem from="1745902812816" duration="25000" />
       <workItem from="1746051555199" duration="15642000" />
       <workItem from="1746071304197" duration="392000" />
-      <workItem from="1746079905186" duration="1406000" />
-      <workItem from="1746115514261" duration="1079000" />
-      <workItem from="1746116630027" duration="252000" />
-      <workItem from="1746116920283" duration="989000" />
-      <workItem from="1746117946222" duration="211000" />
-      <workItem from="1746118211975" duration="1318000" />
-      <workItem from="1746120049663" duration="6970000" />
-      <workItem from="1746146363710" duration="472000" />
+      <workItem from="1746133543941" duration="1856000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up the build file and renamed main.">
       <option name="closed" value="true" />
@@ -304,7 +249,31 @@
       <option name="project" value="LOCAL" />
       <updated>1745467048912</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adjusted mainApp and levels to use the deck class">
+      <option name="closed" value="true" />
+      <created>1746133244101</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746133244101</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adjusted mainApp and levels to use the deck class">
+      <option name="closed" value="true" />
+      <created>1746133307921</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746133307921</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Adjusted mainApp and levels to use the deck class">
+      <option name="closed" value="true" />
+      <created>1746133492886</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1746133492886</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,6 +292,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cleaned up the build file and renamed main." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up the build file and renamed main." />
+    <MESSAGE value="Adjusted mainApp and levels to use the deck class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted mainApp and levels to use the deck class" />
   </component>
 </project>

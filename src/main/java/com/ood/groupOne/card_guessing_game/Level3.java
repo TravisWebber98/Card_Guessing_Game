@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import java.util.Random;
+import java.util.ArrayList;
 
 public class Level3 {
     private VBox layout;
@@ -29,21 +29,23 @@ public class Level3 {
         Label levelLabel = new Label("Level 3: HARD MODE \nGuess BOTH the RANK and SUIT of each card to win!");
 
         //timer
-        timerLabel = new Label("Timer Not Working RN)");
+        timerLabel = new Label();
+        Timer timer = new Timer(timerLabel, mainApp);
+        timer.start();
 
         cardBackImage = new Image(getClass().getResourceAsStream("/CardImages/back.png"));
 
         HBox cardRow = new HBox(20);
         cardRow.setAlignment(Pos.CENTER);
 
-        Random rand = new Random();
-        Card[][] cards = mainApp.getCards();
+//        Random rand = new Random();
+//        Card[][] cards = mainApp.getCards();
 
         for (int i = 0; i < 3; i++) {
-            int suitIndex = rand.nextInt(4);
-            int rankIndex = rand.nextInt(13);
+//            int suitIndex = rand.nextInt(4);
+//            int rankIndex = rand.nextInt(13);
 
-            Card drawnCard = cards[suitIndex][rankIndex];
+            Card drawnCard = mainApp.getDeck().drawCard();
             selectedCards[i] = drawnCard;
 
             ImageView cardBack = new ImageView(cardBackImage);
@@ -90,27 +92,32 @@ public class Level3 {
         }
         flipCardsFaceUp();
         if (correct == 3) {
-            System.out.println("Congratulations! You beat the game! \nGG's!");
+            flipCardsFaceUp();
+            mainApp.startLevel(4);
         } else {
             showRetryOption("Wrong! Try again.");
         }
     }
     //flip card
     private void flipCardsFaceUp() {
-        ImageView[][] cardImages = mainApp.getCardImages();
+        ArrayList<ImageView> cardImages = mainApp.getCardImages();
 
         for (int i = 0; i < 3; i++) {
             Card card = selectedCards[i];
-            int suitIndex = getSuitIndex(card.suit());
-            int rankIndex = getRankIndex(card.rank());
 
-            if (suitIndex == -1 || rankIndex == -1) {
-                System.out.println("Invalid suit or rank for card " + i + ": " + card.suit() + " / " + card.rank());
-                selectedCardViews[i].setImage(cardBackImage); // fallback
-            } else {
-                Image faceImage = cardImages[suitIndex][rankIndex].getImage();
-                selectedCardViews[i].setImage(faceImage);
-            }
+//            int suitIndex = getSuitIndex(card.suit());
+//            int rankIndex = getRankIndex(card.rank());
+//
+//            if (suitIndex == -1 || rankIndex == -1) {
+//                System.out.println("Invalid suit for card " + i + ": " + card.suit() + " / " + card.rank());
+//                selectedCardViews[i].setImage(cardBackImage); // Keep showing back image
+//            } else {
+//                Image faceImage = cardImages[suitIndex][rankIndex].getImage();
+//                selectedCardViews[i].setImage(faceImage);
+//            }
+            Image faceImage;
+            faceImage = cardImages.get(mainApp.getDeck().deck().indexOf(card)).getImage();
+            selectedCardViews[i].setImage(faceImage);
         }
     }
 
