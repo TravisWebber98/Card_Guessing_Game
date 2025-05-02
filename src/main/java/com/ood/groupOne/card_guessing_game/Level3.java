@@ -52,11 +52,11 @@ public class Level3 {
             selectedCardViews[i] = cardBack;
 
             TextField rankField = new TextField();
-            rankField.setPromptText("Rank");
+            rankField.setPromptText("Rank (lowercase only)");
             rankFields[i] = rankField;
 
             TextField suitField = new TextField();
-            suitField.setPromptText("Suit");
+            suitField.setPromptText("Suit (lowercase only)");
             suitFields[i] = suitField;
 
             VBox cardBox = new VBox(10);
@@ -88,7 +88,7 @@ public class Level3 {
                 correct++;
             }
         }
-
+        flipCardsFaceUp();
         if (correct == 3) {
             System.out.println("Congratulations! You beat the game! \nGG's!");
         } else {
@@ -130,13 +130,9 @@ public class Level3 {
 
     private int getSuitIndex(String suit) {
         switch (suit) {
-            case "Clubs":
             case "clubs": return 0;
-            case "Diamonds":
             case "diamonds": return 1;
-            case "Hearts":
             case "hearts": return 2;
-            case "Spades":
             case "spades": return 3;
             default: return -1;
         }
@@ -144,7 +140,6 @@ public class Level3 {
 
     private int getRankIndex(String rank) {
         switch (rank) {
-            case "Ace":
             case "ace": return 0;
             case "2": return 1;
             case "3": return 2;
@@ -155,11 +150,8 @@ public class Level3 {
             case "8": return 7;
             case "9": return 8;
             case "10": return 9;
-            case "Jack":
             case "jack": return 10;
-            case "Queen":
             case "queen": return 11;
-            case "King":
             case "king": return 12;
             default: return -1;
         }

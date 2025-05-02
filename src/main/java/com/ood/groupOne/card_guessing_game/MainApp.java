@@ -12,8 +12,10 @@ import javafx.scene.image.Image;
 public class MainApp extends Application {
     private BorderPane mainLayout;
 
-    //2D array - 52 cards and images
+    //2D array - g52 cards and images
     //adding 52 images to a resource folder?? perhaps
+
+
     private Card[][] cards = new Card [4][13];
     private ImageView[][] cardImages = new ImageView[4][13];
 

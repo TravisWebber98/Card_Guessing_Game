@@ -52,7 +52,7 @@ public class Level2 {
             selectedCardViews[i] = cardBack;
 
             TextField guessField = new TextField();
-            guessField.setPromptText("Rank");
+            guessField.setPromptText("Rank (lowercase only)");
 
             guessFields[i] = guessField;
 
@@ -85,6 +85,8 @@ public class Level2 {
                 correctGuess++;
             }
         }
+
+        flipCardsFaceUp();
 
         if (correctGuess == 3) {
             flipCardsFaceUp();
@@ -127,13 +129,9 @@ public class Level2 {
 
     private int getSuitIndex(String suit) {
         switch (suit) {
-            case "Clubs":
             case "clubs": return 0;
-            case "Diamonds":
             case "diamonds": return 1;
-            case "Hearts":
             case "hearts": return 2;
-            case "Spades":
             case "spades": return 3;
             default: return -1;
 
@@ -142,7 +140,6 @@ public class Level2 {
 
     private int getRankIndex(String rank) {
         switch (rank) {
-            case "Ace":
             case "ace": return 0;
             case "2": return 1;
             case "3": return 2;
@@ -153,11 +150,8 @@ public class Level2 {
             case "8": return 7;
             case "9": return 8;
             case "10": return 9;
-            case "Jack":
             case "jack": return 10;
-            case "Queen":
             case "queen": return 11;
-            case "King":
             case "king": return 12;
             default: return -1;
         }

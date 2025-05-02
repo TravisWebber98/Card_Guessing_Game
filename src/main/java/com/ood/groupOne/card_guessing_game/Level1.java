@@ -29,7 +29,7 @@ public class Level1 {
         layout.setAlignment(Pos.CENTER);
 
         //level and instuctions
-        Label levelLabel = new Label("Level 1 : EASY MODE : Guess the suits. \n(Only enter Hearts, Clubs, Diamonds, Spades (case sensitive) ");
+        Label levelLabel = new Label("Level 1 : EASY MODE : Guess the suits. \n(spades, diamonds, hearts, clubs) ");
 
         //timer
         timerLabel = new Label("Timer Not Working RN");
@@ -61,7 +61,7 @@ public class Level1 {
             selectedCardViews[i] = cardBack;
 
             TextField guessField = new TextField();
-            guessField.setPromptText("Suit");
+            guessField.setPromptText("Suit (lowercase only)");
 
             guessFields[i] = guessField;
             cardBox.getChildren().addAll(cardBack, guessField);
@@ -89,6 +89,8 @@ public class Level1 {
                 correctGuess++;
             }
         }
+        //flip the cards
+        flipCardsFaceUp();
 
         if (correctGuess == 3) {
             flipCardsFaceUp();
@@ -135,13 +137,9 @@ public class Level1 {
 
     private int getSuitIndex(String suit) {
         switch (suit) {
-            case "Clubs":
             case "clubs": return 0;
-            case "Diamonds":
             case "diamonds": return 1;
-            case "Hearts":
             case "hearts": return 2;
-            case "Spades":
             case "spades": return 3;
             default: return -1;
         }
@@ -149,7 +147,6 @@ public class Level1 {
 
     private int getRankIndex(String rank) {
         switch (rank) {
-            case "Ace":
             case "ace": return 0;
             case "2": return 1;
             case "3": return 2;
@@ -160,11 +157,8 @@ public class Level1 {
             case "8": return 7;
             case "9": return 8;
             case "10": return 9;
-            case "Jack":
             case "jack": return 10;
-            case "Queen":
             case "queen": return 11;
-            case "King":
             case "king": return 12;
             default: return -1;
         }
