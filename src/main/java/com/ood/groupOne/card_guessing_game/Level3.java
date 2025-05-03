@@ -76,8 +76,6 @@ public class Level3 extends BaseLevel {
         layout.getChildren().addAll(timerLabel, levelLabel, cardRow, rankFeedbackLabel, suitFeedbackLabel);
     }
     private void handleGuess(int index) {
-        Game gameLvl3 = new Game();
-
         if (correctGuess[index]) return;
 
         String rankGuess = rankFields[index].getText();
@@ -90,13 +88,13 @@ public class Level3 extends BaseLevel {
         String guessColor = getSuitColor(suitGuess);
         String actualColor = getSuitColor(actualSuit);
 
-        gameLvl3.setLvl(levelNumber());
+        Game.setLvl(levelNumber());
         if (rankGuess.equals(actualRank) && suitGuess.equals(actualSuit)) {
             correctGuess[index] = true;
             flipCard(index);
-            gameLvl3.setGuess(true);
+            Game.setGuess(true);
         } else {
-            gameLvl3.setGuess(false);
+            Game.setGuess(false);
             if (!rankGuess.equals(actualRank)) {
                 if (guessNum == -1) {
                     rankFade = showFadeFeedback(rankFeedbackLabel, "Invalid rank!", rankFade, 6);
@@ -105,6 +103,7 @@ public class Level3 extends BaseLevel {
                 } else if (guessNum < actualNum) {
                     rankFade = showFadeFeedback(rankFeedbackLabel, "Too Low!", rankFade, 6);
                 }
+                rankFields[index].clear();
             }
             if (!suitGuess.equals(actualSuit)) {
                 if (guessColor.equals(actualColor)) {
@@ -112,9 +111,11 @@ public class Level3 extends BaseLevel {
                 } else {
                     suitFade = showFadeFeedback(suitFeedbackLabel, "Wrong suit, wrong color.", suitFade, 6);
                 }
+                suitFields[index].clear();
             }
         }
-        gameLvl3.setScore(levelNumber());
+        Game.setScore(levelNumber());
+        mainApp.updateScoreLabel();
 
         if (allCorrect()) {
             timer.stop();

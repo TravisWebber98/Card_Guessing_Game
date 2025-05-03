@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.13'
-    id 'org.beryx.jlink' version '2.25.0'
+    id 'org.beryx.jlink' version '2.25.0'  // JLink plugin for packaging with jpackage
 }
 
 java {
@@ -35,6 +35,34 @@ javafx {
     modules = ['javafx.base', 'javafx.graphics', 'javafx.controls', 'javafx.media']
 }
 
+// jlink configuration
+jlink {
+    imageName = 'CardGuessingGame'
+
+    launcher {
+        name = 'CardGuessingGame'
+    }
+
+    jpackage {
+        // Specify the type of package you want (e.g., 'exe' for Windows)
+        installerType = 'exe'
+
+        installerName = 'CardGuessingGameInstaller'
+        appVersion = '1.0.0'
+
+        // Path to your icon
+        icon = file("src/main/resources/icon.ico").absolutePath
+
+        skipInstaller = false  // Set to true if you want to skip installer creation
+
+        vendor = 'Group 1'
+        description = 'A JavaFX card guessing game built by Group 1 for OOD'
+
+        // Specify the destination directory for the installer
+        outputDir = layout.buildDirectory.dir("jpackage").get().asFile
+    }
+}
+
 dependencies {
     implementation "org.openjfx:javafx-controls:21"
 
@@ -45,29 +73,4 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
-tasks.register('runVisualTimerTest', JavaExec) {
-    group = 'application'
-    description = 'Runs the TimerVisualTest JavaFX UI'
-
-    classpath = sourceSets.main.runtimeClasspath
-    mainClass.set('com.ood.groupOne.card_guessing_game.TimerVisualTest')
-
-    jvmArgs = [
-            '--module-path', "${System.getenv('JAVA_FX_LIB')}",
-            '--add-modules', 'javafx.controls,javafx.base'
-    ]
-}
-
-//jlink {
-//    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
-//    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
-//    launcher {
-//        name = 'app'
-//    }
-//}
-
-//jlinkZip {
-//    group = 'distribution'
-//}
 

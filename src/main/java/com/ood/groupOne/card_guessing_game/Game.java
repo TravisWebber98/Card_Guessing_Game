@@ -1,35 +1,37 @@
 package com.ood.groupOne.card_guessing_game;
 
-import java.util.Scanner;
-
 public class Game {
     // Declare necessary variables
     private static int lvlAmt;
-    private static int score;
-    private static boolean goodGuess;
+    private static int score = 0;
+    private static boolean goodGuess = false;
 
     public Game() {
-        score = 0;
-        goodGuess = false;
+//        score = 0;
+//        goodGuess = false;
     }
 
     // TODO: Implement card class to function properly
     // Set player level, will prompt user from FX
-    public void setLvl(int playerLvl) {
-        this.lvlAmt = playerLvl;
+    public static void setLvl(int playerLvl) {
+        lvlAmt = playerLvl;
     }
 
     // Get player level
-    public int getLvl() {
-        return this.lvlAmt;
+    public static int getLvl() {
+        return lvlAmt;
     }
 
-    public void setGuess(boolean playerGuess) {
+    public static void setGuess(boolean playerGuess) {
         goodGuess = playerGuess;
     }
 
-    public boolean getGuess() {
-        return this.goodGuess;
+    public static boolean getGuess() {
+        return goodGuess;
+    }
+
+    public static int getScore() {
+        return score;
     }
 
     // Set the players score

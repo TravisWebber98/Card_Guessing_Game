@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Bug fixes for the hints">
+    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Put cloning and running instructions in README for professor.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Victory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Victory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +235,7 @@
       <workItem from="1746159363577" duration="103000" />
       <workItem from="1746206834660" duration="19590000" />
       <workItem from="1746226654539" duration="128000" />
-      <workItem from="1746226934453" duration="6967000" />
+      <workItem from="1746226934453" duration="13524000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up the build file and renamed main.">
       <option name="closed" value="true" />
@@ -303,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746233010147</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Put cloning and running instructions in README for professor.">
+      <option name="closed" value="true" />
+      <created>1746234130967</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746234130967</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +342,7 @@
     <MESSAGE value="Added background to cards in level 1. Can copy to other levels." />
     <MESSAGE value="Added fading hints for incorrect guesses and adjusted times for each level." />
     <MESSAGE value="Bug fixes for the hints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes for the hints" />
+    <MESSAGE value="Put cloning and running instructions in README for professor." />
+    <option name="LAST_COMMIT_MESSAGE" value="Put cloning and running instructions in README for professor." />
   </component>
 </project>

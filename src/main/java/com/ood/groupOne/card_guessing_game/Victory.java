@@ -6,14 +6,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 public class Victory {
     private VBox layout;
-    private MainApp mainApp;
 
     public Victory(MainApp mainApp) {
-        this.mainApp = mainApp;
         layout = new VBox(40);
         layout.setAlignment(Pos.CENTER);
 
-        Label winMessage = new Label("You won!");
+        Label winMessage = new Label("You won!\nFinal Score: " + Game.getScore());
         winMessage.setStyle("-fx-text-fill: green; -fx-font-size: 30px; -fx-font-weight: bold;");
 
         Button restartButton = new Button("Play Again?");

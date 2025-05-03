@@ -67,8 +67,6 @@ public class Level2 extends BaseLevel{
 
     // individual guess
     private void handleGuess(int index) {
-        Game gameLvl2 = new Game();
-
         if (correctGuess[index]) return;
 
         String guess = guessFields[index].getText();
@@ -77,19 +75,21 @@ public class Level2 extends BaseLevel{
         int guessedValue = getRankValue(guess);
         int actualValue = getRankValue(actual);
 
-        gameLvl2.setLvl(levelNumber());
+        Game.setLvl(levelNumber());
         if (guess.equals(actual)) {
             correctGuess[index] = true;
             flipCard(index);
-            gameLvl2.setGuess(true);
+            Game.setGuess(true);
         } else if (guessedValue > actualValue) {
-            gameLvl2.setGuess(false);
+            Game.setGuess(false);
             showFeedback("Too High!");
         } else {
-            gameLvl2.setGuess(false);
+            Game.setGuess(false);
             showFeedback("Too Low!");
         }
-        gameLvl2.setScore(levelNumber());
+        Game.setScore(levelNumber());
+        mainApp.updateScoreLabel();
+        guessFields[index].clear();
 
         if (allCorrect()) {
             timer.stop();

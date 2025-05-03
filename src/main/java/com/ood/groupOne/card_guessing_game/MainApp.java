@@ -2,6 +2,8 @@ package com.ood.groupOne.card_guessing_game;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
@@ -16,10 +18,16 @@ public class MainApp extends Application {
     // Create deck and image lists for image mapping
     private Deck deck = new Deck();
     private ArrayList<ImageView> cardImages = new ArrayList<>();
+    private Label scoreLabel;
 
     @Override
     public void start(Stage mainStage) {
+        scoreLabel = new Label("Score: " + Game.getScore());
+        scoreLabel.setStyle("-fx-text-fill: black; -fx-font-size: 16;");
+        HBox top = new HBox(scoreLabel);
+        top.setAlignment(javafx.geometry.Pos.TOP_LEFT);
         mainLayout = new BorderPane();
+        mainLayout.setTop(top);
         mainLayout.setBackground(new Background(new BackgroundFill(Color.DEEPSKYBLUE, null, null)));
         Scene scene = new Scene(mainLayout, 800, 600);
 
@@ -70,6 +78,10 @@ public class MainApp extends Application {
                 break;
         }
 
+    }
+
+    public void updateScoreLabel() {
+        scoreLabel.setText("Score: " + Game.getScore());
     }
 
     public BorderPane getMainLayout() {

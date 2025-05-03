@@ -68,22 +68,22 @@ public class Level1 extends BaseLevel {
 
     // individual guess
     private void handleGuess(int index) {
-        Game gameLvl1 = new Game();
+        //Game gameLvl1 = new Game();
 
         if (correctGuess[index]) return;  // skip if already guessed correctly
 
         String guess = guessFields[index].getText();
         String actual = selectedCards[index].suit();
 
-        gameLvl1.setLvl(levelNumber());
+        Game.setLvl(levelNumber());
         if (guess.equals(actual)) {
             correctGuess[index] = true;
             flipCard(index); // Flip the correct card
 
-            gameLvl1.setGuess(true);
+            Game.setGuess(true);
 
         } else {
-            gameLvl1.setGuess(false);
+            Game.setGuess(false);
 
             String guessedColor = getSuitColor(guess);
             String actualColor = getSuitColor(actual);
@@ -93,7 +93,9 @@ public class Level1 extends BaseLevel {
                 showFeedback("Wrong suit, wrong color.");
             }
         }
-        gameLvl1.setScore(levelNumber());
+        Game.setScore(levelNumber());
+        mainApp.updateScoreLabel();
+        guessFields[index].clear();
 
         // If all cards are guessed correctly, advance to next level
         if (allCorrect()) {
@@ -111,9 +113,5 @@ public class Level1 extends BaseLevel {
 
 
     public int levelNumber() {return 1;}
-
-    public VBox getLayout() {
-        return layout;
-    }
 }
 
