@@ -1,34 +1,23 @@
 package com.ood.groupOne.card_guessing_game;
 
-import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.layout.*;
 
-public class Level3 {
-    private VBox layout;
-    private MainApp mainApp;
+public class Level3 extends BaseLevel {
     private TextField[] rankFields = new TextField[3];
     private TextField[] suitFields = new TextField[3];
-    private ImageView[] selectedCardViews = new ImageView[3];
-    private Card[] selectedCards = new Card[3];
-    private Image cardBackImage;
-    private boolean[] correctGuess = new boolean[3];
-    private Timer timer;
-    private Label rankFeedbackLabel = new Label();
-    private Label suitFeedbackLabel = new Label();
+//    private Label rankFeedbackLabel = new Label();
+//    private Label suitFeedbackLabel = new Label();
 
     public Level3(MainApp mainApp) {
-        this.mainApp = mainApp;
-        layout = new VBox(20);
+        super(mainApp);
         layout.setAlignment(Pos.CENTER);
 
         Label levelLabel = new Label("Level 3: HARD MODE \nGuess BOTH the RANK and SUIT of each card to win!");
@@ -41,8 +30,7 @@ public class Level3 {
         timer.setTimeLeft(75);
         timer.start();
 
-        cardBackImage = new Image(getClass().getResourceAsStream("/CardImages/back.png"));
-
+        //card layout
         HBox cardRow = new HBox(20);
         cardRow.setAlignment(Pos.CENTER);
 
@@ -81,9 +69,9 @@ public class Level3 {
             cardRow.getChildren().add(cardBox);
         }
 
-        rankFeedbackLabel.setVisible(false);
-        suitFeedbackLabel.setVisible(false);
-        layout.getChildren().addAll(timerLabel, levelLabel, cardRow, rankFeedbackLabel, suitFeedbackLabel);
+//        rankFeedbackLabel.setVisible(false);
+//        suitFeedbackLabel.setVisible(false);
+        layout.getChildren().addAll(timerLabel, levelLabel, cardRow, feedbackLabel);
     }
     private void handleGuess(int index) {
         if (correctGuess[index]) return;
@@ -92,6 +80,7 @@ public class Level3 {
         String suitGuess = suitFields[index].getText();
         String actualRank = selectedCards[index].rank();
         String actualSuit = selectedCards[index].suit();
+
         int guessNum = getRankValue(rankGuess);
         int actualNum = getRankValue(actualRank);
         String guessColor = getSuitColor(suitGuess);
@@ -102,68 +91,23 @@ public class Level3 {
             flipCard(index);
         } else {
             if (guessNum > actualNum) {
-                showFeedback("Too High!", rankFeedbackLabel);
+                showFeedback("Too High!");
             } else if (guessNum < actualNum) {
-                showFeedback("Too Low!", rankFeedbackLabel);
+                showFeedback("Too Low!");
             }
             if (!suitGuess.equals(actualSuit)) {
                 if (guessColor.equals(actualColor)) {
-                    showFeedback("Wrong suit, correct color.", suitFeedbackLabel);
+                    showFeedback("Wrong suit, correct color.");
                 } else {
-                    showFeedback("Wrong suit, wrong color.", suitFeedbackLabel);
+                    showFeedback("Wrong suit, wrong color.");
                 }
             }
         }
 
         if (allCorrect()) {
             timer.stop();
-            nextLevel("Congratulations!");
+            nextLevel("Congratulations!", 4);
         }
-    }
-
-    private void showFeedback(String message, Label label) {
-        label.setText(message);
-        label.setStyle("-fx-text-fill: red; -fx-font-size: 15px;");
-        label.setOpacity(1.0);
-        label.setVisible(true);
-
-        FadeTransition fade = new FadeTransition(javafx.util.Duration.seconds(8), label);
-        fade.setFromValue(1.0);
-        fade.setToValue(0.0);
-        fade.setOnFinished(e -> {
-            label.setVisible(false);
-        });
-        fade.play();
-    }
-
-    private void nextLevel(String message) {
-        rankFeedbackLabel.setText(message);
-        rankFeedbackLabel.setStyle("-fx-text-fill: green; -fx-font-size: 20px;");
-        rankFeedbackLabel.setOpacity(1.0);
-        rankFeedbackLabel.setVisible(true);
-
-        FadeTransition fade = new FadeTransition(javafx.util.Duration.seconds(5), rankFeedbackLabel);
-        fade.setFromValue(1.0);
-        fade.setToValue(1.0);
-        fade.setOnFinished(e -> {
-            rankFeedbackLabel.setVisible(false);
-            rankFeedbackLabel.setOpacity(1.0);
-            mainApp.startLevel(4); // Transition to next level
-        });
-        fade.play();
-    }
-
-    private void flipCard(int index) {
-        Card card = selectedCards[index];
-        Image faceImage = mainApp.getCardImages().get(mainApp.getDeck().deck().indexOf(card)).getImage();
-        selectedCardViews[index].setImage(faceImage);
-    }
-
-    private boolean allCorrect() {
-        for (boolean correct : correctGuess) {
-            if (!correct) return false;
-        }
-        return true;
     }
 
     private String getSuitColor(String suit) {

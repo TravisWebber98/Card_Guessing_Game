@@ -1,34 +1,21 @@
 package com.ood.groupOne.card_guessing_game;
 
-import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-import java.util.ArrayList;
 
-public class Level2 {
-    private VBox layout;
-    private MainApp mainApp;
+public class Level2 extends BaseLevel{
+
     private TextField[] guessFields = new TextField[3];
-    private ImageView[] selectedCardViews = new ImageView[3];
-    private Card[] selectedCards = new Card[3];
-    private Image cardBackImage;
-    private boolean[] correctGuess = new boolean[3]; // Track if each card has been guessed correctly
-    private Timer timer;
-    private Label feedbackLabel = new Label();
 
     public Level2(MainApp mainApp) {
-        this.mainApp = mainApp;
-        layout = new VBox(20);
+        super(mainApp);
         layout.setAlignment(Pos.CENTER);
 
         Label levelLabel = new Label("Level 2: MEDIUM MODE \nGuess the RANK of each card (ace, 2 ... queen, king)");
@@ -40,8 +27,6 @@ public class Level2 {
         timer = new Timer(timerLabel, mainApp);
         timer.setTimeLeft(60);
         timer.start();
-
-        cardBackImage = new Image(getClass().getResourceAsStream("/CardImages/back.png"));
 
         HBox cardRow = new HBox(20);
         cardRow.setAlignment(Pos.CENTER);
@@ -75,7 +60,6 @@ public class Level2 {
             cardBox.getChildren().addAll(cardPane, guessField, guessButton);
             cardRow.getChildren().add(cardBox);
         }
-        feedbackLabel.setVisible(false);
         layout.getChildren().addAll(timerLabel, levelLabel, cardRow, feedbackLabel);
     }
 
@@ -101,55 +85,8 @@ public class Level2 {
 
         if (allCorrect()) {
             timer.stop();
-            nextLevel("All cards guessed correctly! Are you ready for level 3?");
+            nextLevel("All cards guessed correctly! Are you ready for level 3?", 3);
         }
-    }
-
-    // Flip
-    private void flipCard(int index) {
-        Card card = selectedCards[index];
-        Image faceImage = mainApp.getCardImages().get(mainApp.getDeck().deck().indexOf(card)).getImage();
-        selectedCardViews[index].setImage(faceImage);
-    }
-
-    // Check
-    private boolean allCorrect() {
-        for (boolean correct : correctGuess) {
-            if (!correct) return false;
-        }
-        return true;
-    }
-
-    private void showFeedback(String message) {
-        feedbackLabel.setText(message);
-        feedbackLabel.setStyle("-fx-text-fill: red; -fx-font-size: 15px;");
-        feedbackLabel.setOpacity(1.0);
-        feedbackLabel.setVisible(true);
-
-        FadeTransition fade = new FadeTransition(javafx.util.Duration.seconds(5), feedbackLabel);
-        fade.setFromValue(1.0);
-        fade.setToValue(0.0);
-        fade.setOnFinished(e -> {
-            feedbackLabel.setVisible(false);
-        });
-        fade.play();
-    }
-
-    private void nextLevel(String message) {
-        feedbackLabel.setText(message);
-        feedbackLabel.setStyle("-fx-text-fill: green; -fx-font-size: 20px;");
-        feedbackLabel.setOpacity(1.0);
-        feedbackLabel.setVisible(true);
-
-        FadeTransition fade = new FadeTransition(javafx.util.Duration.seconds(5), feedbackLabel);
-        fade.setFromValue(1.0);
-        fade.setToValue(1.0);
-        fade.setOnFinished(e -> {
-            feedbackLabel.setVisible(false);
-            feedbackLabel.setOpacity(1.0);
-            mainApp.startLevel(3); // Transition to next level
-        });
-        fade.play();
     }
 
     private int getRankValue(String rank) {
@@ -183,10 +120,5 @@ public class Level2 {
             default:
                 return -1; // Invalid input
         }
-    }
-
-
-    public VBox getLayout() {
-        return layout;
     }
 }
