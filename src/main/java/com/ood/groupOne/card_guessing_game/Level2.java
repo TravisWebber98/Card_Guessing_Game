@@ -60,6 +60,7 @@ public class Level2 extends BaseLevel{
             cardBox.getChildren().addAll(cardPane, guessField, guessButton);
             cardRow.getChildren().add(cardBox);
         }
+
         layout.getChildren().addAll(timerLabel, levelLabel, cardRow, feedbackLabel);
     }
 

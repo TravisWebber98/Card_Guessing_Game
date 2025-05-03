@@ -1,10 +1,10 @@
 package com.ood.groupOne.card_guessing_game;
 
+import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -13,8 +13,10 @@ import javafx.scene.layout.*;
 public class Level3 extends BaseLevel {
     private TextField[] rankFields = new TextField[3];
     private TextField[] suitFields = new TextField[3];
-//    private Label rankFeedbackLabel = new Label();
-//    private Label suitFeedbackLabel = new Label();
+    private Label rankFeedbackLabel = new Label();
+    private Label suitFeedbackLabel = new Label();
+    private FadeTransition rankFade;
+    private FadeTransition suitFade;
 
     public Level3(MainApp mainApp) {
         super(mainApp);
@@ -71,7 +73,7 @@ public class Level3 extends BaseLevel {
 
 //        rankFeedbackLabel.setVisible(false);
 //        suitFeedbackLabel.setVisible(false);
-        layout.getChildren().addAll(timerLabel, levelLabel, cardRow, feedbackLabel);
+        layout.getChildren().addAll(timerLabel, levelLabel, cardRow, rankFeedbackLabel, suitFeedbackLabel);
     }
     private void handleGuess(int index) {
         if (correctGuess[index]) return;
@@ -90,16 +92,20 @@ public class Level3 extends BaseLevel {
             correctGuess[index] = true;
             flipCard(index);
         } else {
-            if (guessNum > actualNum) {
-                showFeedback("Too High!");
-            } else if (guessNum < actualNum) {
-                showFeedback("Too Low!");
+            if (!rankGuess.equals(actualRank)) {
+                if (guessNum == -1) {
+                    rankFade = showFadeFeedback(rankFeedbackLabel, "Invalid rank!", rankFade, 6);
+                } else if (guessNum > actualNum) {
+                    rankFade = showFadeFeedback(rankFeedbackLabel, "Too High!", rankFade, 6);
+                } else if (guessNum < actualNum) {
+                    rankFade = showFadeFeedback(rankFeedbackLabel, "Too Low!", rankFade, 6);
+                }
             }
             if (!suitGuess.equals(actualSuit)) {
                 if (guessColor.equals(actualColor)) {
-                    showFeedback("Wrong suit, correct color.");
+                    suitFade = showFadeFeedback(suitFeedbackLabel, "Wrong suit, correct color.", suitFade, 6);
                 } else {
-                    showFeedback("Wrong suit, wrong color.");
+                    suitFade = showFadeFeedback(suitFeedbackLabel, "Wrong suit, wrong color.", suitFade, 6);
                 }
             }
         }
@@ -109,6 +115,7 @@ public class Level3 extends BaseLevel {
             nextLevel("Congratulations!", 4);
         }
     }
+
 
     private String getSuitColor(String suit) {
         if (suit.equals("spades") || suit.equals("clubs")) {

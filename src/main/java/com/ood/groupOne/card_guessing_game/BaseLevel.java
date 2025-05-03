@@ -50,11 +50,14 @@ public class BaseLevel {
             activeFade.stop();
         }
 
-        FadeTransition fade = new FadeTransition(Duration.seconds(5), feedbackLabel);
-        fade.setFromValue(1.0);
-        fade.setToValue(0.0);
-        fade.setOnFinished(e -> feedbackLabel.setVisible(false));
-        fade.play();
+        activeFade = new FadeTransition(Duration.seconds(5), feedbackLabel);
+        activeFade.setFromValue(1.0);
+        activeFade.setToValue(0.0);
+        activeFade.setOnFinished(e -> {
+            feedbackLabel.setVisible(false);
+            activeFade = null;
+        });
+        activeFade.play();
     }
 
     protected void nextLevel(String message, int nextLevel) {
@@ -63,14 +66,36 @@ public class BaseLevel {
         feedbackLabel.setOpacity(1.0);
         feedbackLabel.setVisible(true);
 
-        FadeTransition fade = new FadeTransition(Duration.seconds(5), feedbackLabel);
-        fade.setFromValue(1.0);
-        fade.setToValue(1.0);
-        fade.setOnFinished(e -> {
+        if (activeFade != null) {
+            activeFade.stop(); // Prevent overlapping fade if jumping levels
+        }
+
+        activeFade = new FadeTransition(Duration.seconds(5), feedbackLabel);
+        activeFade.setFromValue(1.0);
+        activeFade.setToValue(1.0);
+        activeFade.setOnFinished(e -> {
             feedbackLabel.setVisible(false);
             mainApp.startLevel(nextLevel);
         });
+        activeFade.play();
+    }
+    protected FadeTransition showFadeFeedback(Label label, String message, FadeTransition previousFade, int seconds) {
+        label.setText(message);
+        label.setStyle("-fx-text-fill: red; -fx-font-size: 15px;");
+        label.setOpacity(1.0);
+        label.setVisible(true);
+
+        if (previousFade != null) {
+            previousFade.stop();
+        }
+
+        FadeTransition fade = new FadeTransition(Duration.seconds(seconds), label);
+        fade.setFromValue(1.0);
+        fade.setToValue(0.0);
+        fade.setOnFinished(e -> label.setVisible(false));
         fade.play();
+
+        return fade;
     }
 
     public VBox getLayout() {

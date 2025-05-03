@@ -99,5 +99,14 @@ public class Level1 extends BaseLevel {
         }
         return "red";
     }
+
+
+    public int levelNumber() {
+        return 1;
+    }
+
+    public VBox getLayout() {
+        return layout;
+    }
 }
 
