@@ -22,6 +22,7 @@ public class GameOver {
         restartButton.setOnAction(e -> mainApp.startLevel(1));
 
         layout.getChildren().addAll(loseMessage, restartButton);
+        Game.resetScore();
     }
     public VBox getLayout() {
         return layout;

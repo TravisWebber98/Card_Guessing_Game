@@ -15,6 +15,7 @@ public class Level1 extends BaseLevel {
     public Level1(MainApp mainApp) {
         super(mainApp);
         layout.setAlignment(Pos.CENTER);
+        mainApp.updateScoreLabel();
 
         //level and instuctions
         Label levelLabel = new Label("Level 1 : EASY MODE : Guess the suits. \n(spades, diamonds, hearts, clubs) ");

@@ -34,6 +34,10 @@ public class Game {
         return score;
     }
 
+    public static void resetScore() {
+        score = 0;
+    }
+
     // Set the players score
     // Checks if guess is correct and gives points based on current level
     public static void setScore(int level) {

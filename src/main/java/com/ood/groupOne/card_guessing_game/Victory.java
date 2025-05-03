@@ -20,6 +20,7 @@ public class Victory {
         restartButton.setOnAction(e -> mainApp.startLevel(1));
 
         layout.getChildren().addAll(winMessage, restartButton);
+        Game.resetScore();
     }
     public VBox getLayout() {
         return layout;
