@@ -25,6 +25,8 @@ public class Level3 {
     private Timer timer;
     private Label rankFeedbackLabel = new Label();
     private Label suitFeedbackLabel = new Label();
+    private FadeTransition rankFade;
+    private FadeTransition suitFade;
 
     public Level3(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -102,15 +104,15 @@ public class Level3 {
             flipCard(index);
         } else {
             if (guessNum > actualNum) {
-                showFeedback("Too High!", rankFeedbackLabel);
+                showFeedback("Too High!", rankFeedbackLabel, rankFade);
             } else if (guessNum < actualNum) {
-                showFeedback("Too Low!", rankFeedbackLabel);
+                showFeedback("Too Low!", rankFeedbackLabel, rankFade);
             }
             if (!suitGuess.equals(actualSuit)) {
                 if (guessColor.equals(actualColor)) {
-                    showFeedback("Wrong suit, correct color.", suitFeedbackLabel);
+                    showFeedback("Wrong suit, correct color.", suitFeedbackLabel, suitFade);
                 } else {
-                    showFeedback("Wrong suit, wrong color.", suitFeedbackLabel);
+                    showFeedback("Wrong suit, wrong color.", suitFeedbackLabel, suitFade);
                 }
             }
         }
@@ -121,11 +123,15 @@ public class Level3 {
         }
     }
 
-    private void showFeedback(String message, Label label) {
+    private void showFeedback(String message, Label label, FadeTransition existingFade) {
         label.setText(message);
         label.setStyle("-fx-text-fill: red; -fx-font-size: 15px;");
         label.setOpacity(1.0);
         label.setVisible(true);
+
+        if (existingFade != null){
+            existingFade.stop();
+        }
 
         FadeTransition fade = new FadeTransition(javafx.util.Duration.seconds(8), label);
         fade.setFromValue(1.0);
@@ -134,6 +140,12 @@ public class Level3 {
             label.setVisible(false);
         });
         fade.play();
+
+        if (label == rankFeedbackLabel) {
+            rankFade = fade;
+        } else if (label == suitFeedbackLabel) {
+            suitFade = fade;
+        }
     }
 
     private void nextLevel(String message) {
@@ -142,12 +154,15 @@ public class Level3 {
         rankFeedbackLabel.setOpacity(1.0);
         rankFeedbackLabel.setVisible(true);
 
+        if (rankFade != null){
+            rankFade.stop();
+        }
+
         FadeTransition fade = new FadeTransition(javafx.util.Duration.seconds(5), rankFeedbackLabel);
         fade.setFromValue(1.0);
         fade.setToValue(1.0);
         fade.setOnFinished(e -> {
             rankFeedbackLabel.setVisible(false);
-            rankFeedbackLabel.setOpacity(1.0);
             mainApp.startLevel(4); // Transition to next level
         });
         fade.play();
@@ -204,6 +219,10 @@ public class Level3 {
             default:
                 return -1; // Invalid input
         }
+    }
+
+    public int levelNumber() {
+        return 3;
     }
 
     public VBox getLayout() {

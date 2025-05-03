@@ -21,6 +21,7 @@ public class Level1 {
     private boolean[] correctGuess = new boolean[3]; // Track if each card has been guessed correctly
     private Timer timer;
     private Label feedbackLabel = new Label();
+    private FadeTransition activeFade = new FadeTransition();
 
 
     public Level1(MainApp mainApp) {
@@ -135,13 +136,18 @@ public class Level1 {
         feedbackLabel.setOpacity(1.0);
         feedbackLabel.setVisible(true);
 
-        FadeTransition fade = new FadeTransition(javafx.util.Duration.seconds(5), feedbackLabel);
-        fade.setFromValue(1.0);
-        fade.setToValue(0.0);
-        fade.setOnFinished(e -> {
+        if (activeFade != null){
+            activeFade.stop();
+        }
+
+        activeFade = new FadeTransition(javafx.util.Duration.seconds(5), feedbackLabel);
+        activeFade.setFromValue(1.0);
+        activeFade.setToValue(0.0);
+        activeFade.setOnFinished(e -> {
             feedbackLabel.setVisible(false);
+            activeFade = null;
         });
-        fade.play();
+        activeFade.play();
     }
 
     private void nextLevel(String message) {
@@ -150,15 +156,22 @@ public class Level1 {
         feedbackLabel.setOpacity(1.0);
         feedbackLabel.setVisible(true);
 
+        if (activeFade != null){
+            activeFade.stop();
+        }
+
         FadeTransition fade = new FadeTransition(javafx.util.Duration.seconds(5), feedbackLabel);
         fade.setFromValue(1.0);
         fade.setToValue(1.0);
         fade.setOnFinished(e -> {
             feedbackLabel.setVisible(false);
-            feedbackLabel.setOpacity(1.0);
             mainApp.startLevel(2); // Transition to next level
         });
         fade.play();
+    }
+
+    public int levelNumber() {
+        return 1;
     }
 
     public VBox getLayout() {

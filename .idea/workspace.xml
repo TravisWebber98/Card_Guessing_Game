@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Added background to cards in level 1. Can copy to other levels.">
+    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Added fading hints for incorrect guesses and adjusted times for each level.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/GameOver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/GameOver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/full_stash.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/level_fixes.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/StartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/StartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Timer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Victory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Victory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stash_diff.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,17 +37,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="card_guessing_game" type="f1a62948:ProjectNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="card_guessing_game" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="card_guessing_game" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -66,6 +54,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -73,12 +62,12 @@
     &quot;assignee&quot;: &quot;TravisWebber98&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/TravisWebber98/Card_Guessing_Game&quot;,
-    &quot;accountId&quot;: &quot;45868915-496b-4fa6-971d-cf90880fb150&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/TravisWebber98/Card_Guessing_Game",
+    "accountId": "45868915-496b-4fa6-971d-cf90880fb150"
   }
-}</component>
+}]]></component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -244,7 +233,9 @@
       <workItem from="1746071304197" duration="392000" />
       <workItem from="1746133543941" duration="8524000" />
       <workItem from="1746159363577" duration="103000" />
-      <workItem from="1746206834660" duration="18079000" />
+      <workItem from="1746206834660" duration="19590000" />
+      <workItem from="1746226654539" duration="128000" />
+      <workItem from="1746226934453" duration="5980000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up the build file and renamed main.">
       <option name="closed" value="true" />
@@ -302,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746159427021</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added fading hints for incorrect guesses and adjusted times for each level.">
+      <option name="closed" value="true" />
+      <created>1746225448846</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746225448846</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +324,7 @@
     <MESSAGE value="Made basic Game Over and Victory screens. changed timer to automatically go to game over when time runs out. Level 3 should go to victory but haven't been able to test." />
     <MESSAGE value="Changed the background color and started editing fonts. Will apply to the rest of the levels later." />
     <MESSAGE value="Added background to cards in level 1. Can copy to other levels." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added background to cards in level 1. Can copy to other levels." />
+    <MESSAGE value="Added fading hints for incorrect guesses and adjusted times for each level." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added fading hints for incorrect guesses and adjusted times for each level." />
   </component>
 </project>
