@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Added header comment">
+    <list default="true" id="279653b2-cc1b-4beb-9f1e-aaf8f52934a8" name="Changes" comment="Fixed Score">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/GameOver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/GameOver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Victory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ood/groupOne/card_guessing_game/Victory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +230,7 @@
       <workItem from="1746159363577" duration="103000" />
       <workItem from="1746206834660" duration="19590000" />
       <workItem from="1746226654539" duration="128000" />
-      <workItem from="1746226934453" duration="15146000" />
+      <workItem from="1746226934453" duration="16872000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up the build file and renamed main.">
       <option name="closed" value="true" />
@@ -330,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746243492878</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed Score">
+      <option name="closed" value="true" />
+      <created>1746244649099</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746244649100</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,6 +364,7 @@
     <MESSAGE value="Put cloning and running instructions in README for professor." />
     <MESSAGE value="Added score counter" />
     <MESSAGE value="Added header comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added header comment" />
+    <MESSAGE value="Fixed Score" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Score" />
   </component>
 </project>

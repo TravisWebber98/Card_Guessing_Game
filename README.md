@@ -14,13 +14,8 @@ cd Card_Guessing_Game
 ```
 
 ### 2. Run the Game
-macOS/Linux
 ```bash
 ./gradlew run
-```
-Windows
-```bash
-gradlew.bat run
 ```
 
 ## Requirements

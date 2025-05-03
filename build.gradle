@@ -38,10 +38,13 @@ javafx {
 // jlink configuration
 jlink {
     imageName = 'CardGuessingGame'
+    addExtraDependencies("ALL")
 
     launcher {
         name = 'CardGuessingGame'
     }
+
+    forceMerge('javafx')
 
     jpackage {
         // Specify the type of package you want (e.g., 'exe' for Windows)
