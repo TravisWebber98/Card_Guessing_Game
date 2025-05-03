@@ -1,3 +1,20 @@
+/**
+ * This is group 1's final project for Object Oriented Programming.
+ * A card guessing game that gradually increases in difficulty as levels progress.
+ * Points are earned and lost based on correct and incorrect guesses.
+ *
+ * @Authors
+ * Campos, Angel
+ * Smith, Jack
+ * Webber, Travis
+ *
+ * @Project
+ * CSCI 428 Final Project
+ *
+ * @date
+ * 05/02/2025
+ */
+
 package com.ood.groupOne.card_guessing_game;
 
 import javafx.application.Application;
